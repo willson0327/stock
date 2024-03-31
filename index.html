@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Analysis</title>
+</head>
+<body>
+    <h1>Stock Analysis</h1>
+    <form method="post">
+        <label for="ticker">Enter stock ticker (e.g., 2330): </label>
+        <input type="text" id="ticker" name="ticker">
+        <button type="submit">Analyze</button>
+    </form>
+    {% if plot_data %}
+        <h2>Stock Chart</h2>
+        <img src="data:image/png;base64,{{ plot_data }}" alt="Stock Chart">
+        <h2>Stock Data</h2>
+        {{ table_data|safe }}
+    {% endif %}
+</body>
+</html>
